@@ -7,12 +7,12 @@
 
 # ChatGPT training
 
-## How was ChatGPT (at least 3.5) trained?
+## How was ChatGPT (3.5) trained?
 
 - very large dataset: (570Gb of text data, 499 B of tokens)
 
 :::::{.columns}
-:::{.column width="50%"}
+:::{.column width="60%"}
 
 ```{ojs}
 Plotly = require('plotly.js-dist');
@@ -53,7 +53,7 @@ Plotly = require('plotly.js-dist');
 
 :::
 
-:::{.column width="50%"}
+:::{.column width="40%"}
 
 Underrepresentation on the web means less accuracy and more hallucinations!
 
@@ -172,4 +172,11 @@ But tibshirani has never worked on crowdsourced datasets
 
 :::::
 
-#
+# Human-in-the-loop pipeline
+
+::: {.r-stack}
+![](images/global_pipeline1.png){.fragment}
+
+![](images/global_pipeline2.png){.fragment}
+
+:::
