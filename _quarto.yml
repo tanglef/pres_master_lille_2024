@@ -40,3 +40,6 @@ format:
     toc-depth: 1
 execute:
   freeze: auto
+
+toc-depth: 1
+tbl-colwidths: [60, 50, 40, 30, 30]

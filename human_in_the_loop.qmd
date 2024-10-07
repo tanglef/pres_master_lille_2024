@@ -15,7 +15,7 @@
 :::{.column width="50%"}
 
 ```{ojs}
-Plotly = require('plotly.js-dist');
+var Plotly = require('plotly.js-dist');
 ```
 
 ```{ojs}
