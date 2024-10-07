@@ -15,7 +15,7 @@
 :::{.column width="50%"}
 
 ```{ojs}
-var Plotly = require('plotly.js-dist');
+Plotly = require('plotly.js-dist');
 ```
 
 ```{ojs}
@@ -79,7 +79,7 @@ Copyright issues, be careful no way to check truthfulness
 
 - pretraining (unsupervised learning): fill blanck, attention mechanisms, next word
 - fine-tuning (supervised learning): specific dialogues, hyperparameters tuning
-- RLHF (reinforcement learning): workers give feedback and possible rewards + exploration
+- RLHF (reinforcement learning): workers give feedback
 
 :::::
 

@@ -51,9 +51,9 @@ div[class^="ojs-"] {
     }
 }
 
-img:not(.noinvert) {
-    filter: invert(80%);
-}
+// img:not(.noinvert) {
+//     filter: invert(80%);
+// }
 
 div[data-src="images/hallucinations-human.svg"]>svg {
     width: 100%;
