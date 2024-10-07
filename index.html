@@ -8,7 +8,7 @@
 <link href="human_in_the_loop_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="human_in_the_loop_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="human_in_the_loop_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.388">
+  <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Tanguy Lefort">
   <meta name="dcterms.date" content="2024-07-05">
@@ -43,7 +43,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -71,7 +71,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -85,7 +85,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -442,7 +442,7 @@ Tanguy Lefort
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="17" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 16;"><span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Plotly <span class="op">=</span> <span class="pp">require</span>(<span class="st">'plotly.js-dist'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="17" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 16;"><span id="cb1-17"><a href="" aria-hidden="true" tabindex="-1"></a>Plotly <span class="op">=</span> <span class="pp">require</span>(<span class="st">'plotly.js-dist'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
@@ -450,33 +450,33 @@ Tanguy Lefort
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="24" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 23;"><span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> data <span class="op">=</span> [{</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>      <span class="dt">values</span><span class="op">:</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">22</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>      <span class="dt">labels</span><span class="op">:</span> [<span class="st">"wikipedia"</span><span class="op">,</span> <span class="st">"Books1"</span><span class="op">,</span> <span class="st">"Books2"</span><span class="op">,</span> <span class="st">"Webtext2"</span><span class="op">,</span> <span class="st">"Common Crawl"</span>]<span class="op">,</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>      <span class="dt">textinfo</span><span class="op">:</span> <span class="st">"label+percent"</span><span class="op">,</span> </span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>      <span class="dt">type</span><span class="op">:</span> <span class="st">"pie"</span><span class="op">,</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>      <span class="dt">marker</span><span class="op">:</span> {</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>          <span class="dt">colors</span><span class="op">:</span> [<span class="st">"lightcyan"</span><span class="op">,</span> <span class="st">"cyan"</span><span class="op">,</span> <span class="st">"royalblue"</span><span class="op">,</span> <span class="st">"darkblue"</span><span class="op">,</span> <span class="st">"gold"</span>]</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  }]<span class="op">;</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> layout <span class="op">=</span> {</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="dt">template</span><span class="op">:</span> <span class="st">'plotly_light'</span><span class="op">,</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="dt">paper_bgcolor</span><span class="op">:</span> <span class="st">"rgba(0,0,0,0)"</span><span class="op">,</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="dt">plot_bgcolor</span><span class="op">:</span> <span class="st">"rgba(0,0,0,0)"</span><span class="op">,</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="dt">font</span><span class="op">:</span> {</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>        <span class="dt">size</span><span class="op">:</span> <span class="dv">26</span><span class="op">,</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>        <span class="dt">color</span><span class="op">:</span> <span class="st">"white"</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="dt">margin</span><span class="op">:</span> {<span class="st">"t"</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="st">"b"</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="st">"l"</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="st">"r"</span><span class="op">:</span> <span class="dv">0</span>}<span class="op">,</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="dt">showlegend</span><span class="op">:</span> <span class="kw">false</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> div <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  Plotly<span class="op">.</span><span class="fu">newPlot</span>(div<span class="op">,</span> data<span class="op">,</span> layout<span class="op">,</span>{<span class="dt">displayModeBar</span><span class="op">:</span> <span class="kw">false</span>})<span class="op">;</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> div<span class="op">;</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="24" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 23;"><span id="cb2-24"><a href="" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb2-25"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> data <span class="op">=</span> [{</span>
+<span id="cb2-26"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">values</span><span class="op">:</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">22</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span></span>
+<span id="cb2-27"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">labels</span><span class="op">:</span> [<span class="st">"wikipedia"</span><span class="op">,</span> <span class="st">"Books1"</span><span class="op">,</span> <span class="st">"Books2"</span><span class="op">,</span> <span class="st">"Webtext2"</span><span class="op">,</span> <span class="st">"Common Crawl"</span>]<span class="op">,</span></span>
+<span id="cb2-28"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">textinfo</span><span class="op">:</span> <span class="st">"label+percent"</span><span class="op">,</span> </span>
+<span id="cb2-29"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">type</span><span class="op">:</span> <span class="st">"pie"</span><span class="op">,</span></span>
+<span id="cb2-30"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">marker</span><span class="op">:</span> {</span>
+<span id="cb2-31"><a href="" aria-hidden="true" tabindex="-1"></a>          <span class="dt">colors</span><span class="op">:</span> [<span class="st">"lightcyan"</span><span class="op">,</span> <span class="st">"cyan"</span><span class="op">,</span> <span class="st">"royalblue"</span><span class="op">,</span> <span class="st">"darkblue"</span><span class="op">,</span> <span class="st">"gold"</span>]</span>
+<span id="cb2-32"><a href="" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-33"><a href="" aria-hidden="true" tabindex="-1"></a>  }]<span class="op">;</span></span>
+<span id="cb2-34"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> layout <span class="op">=</span> {</span>
+<span id="cb2-36"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">template</span><span class="op">:</span> <span class="st">'plotly_light'</span><span class="op">,</span></span>
+<span id="cb2-37"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">paper_bgcolor</span><span class="op">:</span> <span class="st">"rgba(0,0,0,0)"</span><span class="op">,</span></span>
+<span id="cb2-38"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">plot_bgcolor</span><span class="op">:</span> <span class="st">"rgba(0,0,0,0)"</span><span class="op">,</span></span>
+<span id="cb2-39"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">font</span><span class="op">:</span> {</span>
+<span id="cb2-40"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="dt">size</span><span class="op">:</span> <span class="dv">26</span><span class="op">,</span></span>
+<span id="cb2-41"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="dt">color</span><span class="op">:</span> <span class="st">"white"</span></span>
+<span id="cb2-42"><a href="" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb2-43"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">margin</span><span class="op">:</span> {<span class="st">"t"</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="st">"b"</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="st">"l"</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="st">"r"</span><span class="op">:</span> <span class="dv">0</span>}<span class="op">,</span></span>
+<span id="cb2-44"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">showlegend</span><span class="op">:</span> <span class="kw">false</span></span>
+<span id="cb2-45"><a href="" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb2-46"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> div <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
+<span id="cb2-48"><a href="" aria-hidden="true" tabindex="-1"></a>  Plotly<span class="op">.</span><span class="fu">newPlot</span>(div<span class="op">,</span> data<span class="op">,</span> layout<span class="op">,</span>{<span class="dt">displayModeBar</span><span class="op">:</span> <span class="kw">false</span>})<span class="op">;</span></span>
+<span id="cb2-49"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> div<span class="op">;</span></span>
+<span id="cb2-50"><a href="" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="dataset-repartition" class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="expression">
 
@@ -491,20 +491,13 @@ Tanguy Lefort
 <li>Weighted sampling: <em>Wikipedia</em>=5CommonCrawl, Books1=20ComonCrawl,…</li>
 </ul>
 <p>Copyright issues, be careful no way to check truthfulness</p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="training-with-humans" class="slide level2 center">
 <h2>Training with humans</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-float-fig">
-<div>
-<img data-src="./images/hrl.png" id="fig-539a35d47e664c97a50115a146a7f1bd-1">
-</div>
-</figure>
-</div>
+<p><img data-src="./images/hrl.png"></p>
 </div><div class="column" style="width:50%;">
 <div>
 <ul>
@@ -513,8 +506,7 @@ Tanguy Lefort
 <li class="fragment">RLHF (reinforcement learning): workers give feedback and possible rewards + exploration</li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 <div class="attribution">
 <p><a href="https://twitter.com/anthrupad">@anthrupad</a></p>
 </div>
@@ -523,54 +515,54 @@ Tanguy Lefort
 <h2>Your feedback is informative</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="sourceCode" id="cb3" src="images/hallucinations-human.svg" style="width: 100%; height: 100%"><pre class="sourceCode yaml animate code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setup</span><span class="kw">:</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:groupmode="layer"]</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">0</span><span class="kw">]</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Generated"] &gt; path</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> attr</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">"d"</span><span class="kw">:</span><span class="at"> </span><span class="st">"M 300.20352,-500.787593 C 126.77769,161.28468 127.22354,159.90813 127.22354,159.90813 L -300.809962,300.1924466 v 0"</span><span class="at"> </span><span class="kw">}</span><span class="at"> </span><span class="kw">]</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">animation</span><span class="kw">:</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:groupmode="layer"]</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">0</span><span class="kw">]</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Truth"]</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Likelihood"]</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Common"]</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="kw">[]</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Generated"]</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Generated"] &gt; path</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> attr</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">duration</span><span class="kw">:</span><span class="at"> </span><span class="dv">3000</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">"d"</span><span class="kw">:</span><span class="at"> </span><span class="st">"M 156.20352,-49.787593 C 126.77769,161.28468 127.22354,159.90813 127.22354,159.90813 L -24.809962,6.1924466 v 0"</span><span class="at"> </span><span class="kw">}</span><span class="at"> </span><span class="kw">]</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Hallucinations"]</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">duration</span><span class="kw">:</span><span class="at"> </span><span class="dv">1500</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="kw">[]</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Human"]</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Hallucinations"]</span></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">0</span><span class="kw">]</span></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Generated"]</span></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">0</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3" src="images/hallucinations-human.svg" style="width: 100%; height: 100%"><pre class="sourceCode yaml animate code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">setup</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:groupmode="layer"]</span></span>
+<span id="cb3-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
+<span id="cb3-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">0</span><span class="kw">]</span></span>
+<span id="cb3-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Generated"] &gt; path</span></span>
+<span id="cb3-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> attr</span></span>
+<span id="cb3-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">"d"</span><span class="kw">:</span><span class="at"> </span><span class="st">"M 300.20352,-500.787593 C 126.77769,161.28468 127.22354,159.90813 127.22354,159.90813 L -300.809962,300.1924466 v 0"</span><span class="at"> </span><span class="kw">}</span><span class="at"> </span><span class="kw">]</span></span>
+<span id="cb3-8"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">animation</span><span class="kw">:</span></span>
+<span id="cb3-9"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
+<span id="cb3-10"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:groupmode="layer"]</span></span>
+<span id="cb3-11"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
+<span id="cb3-12"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">0</span><span class="kw">]</span></span>
+<span id="cb3-13"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
+<span id="cb3-14"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Truth"]</span></span>
+<span id="cb3-15"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
+<span id="cb3-16"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
+<span id="cb3-17"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
+<span id="cb3-18"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Likelihood"]</span></span>
+<span id="cb3-19"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
+<span id="cb3-20"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
+<span id="cb3-21"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
+<span id="cb3-22"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Common"]</span></span>
+<span id="cb3-23"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
+<span id="cb3-24"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
+<span id="cb3-25"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="kw">[]</span></span>
+<span id="cb3-26"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
+<span id="cb3-27"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Generated"]</span></span>
+<span id="cb3-28"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
+<span id="cb3-29"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
+<span id="cb3-30"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Generated"] &gt; path</span></span>
+<span id="cb3-31"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> attr</span></span>
+<span id="cb3-32"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">duration</span><span class="kw">:</span><span class="at"> </span><span class="dv">3000</span></span>
+<span id="cb3-33"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">"d"</span><span class="kw">:</span><span class="at"> </span><span class="st">"M 156.20352,-49.787593 C 126.77769,161.28468 127.22354,159.90813 127.22354,159.90813 L -24.809962,6.1924466 v 0"</span><span class="at"> </span><span class="kw">}</span><span class="at"> </span><span class="kw">]</span></span>
+<span id="cb3-34"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Hallucinations"]</span></span>
+<span id="cb3-35"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
+<span id="cb3-36"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">duration</span><span class="kw">:</span><span class="at"> </span><span class="dv">1500</span></span>
+<span id="cb3-37"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
+<span id="cb3-38"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="kw">[]</span></span>
+<span id="cb3-39"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
+<span id="cb3-40"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Human"]</span></span>
+<span id="cb3-41"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
+<span id="cb3-42"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
+<span id="cb3-43"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Hallucinations"]</span></span>
+<span id="cb3-44"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
+<span id="cb3-45"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">0</span><span class="kw">]</span></span>
+<span id="cb3-46"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Generated"]</span></span>
+<span id="cb3-47"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
+<span id="cb3-48"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">0</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <p><span class="fragment"></span> <span class="fragment"></span> <span class="fragment"></span></p>
 <pre class="plain fragment"><code>Give me 2 papers of tibshirani about crowdsourced datasets</code></pre>
@@ -581,10 +573,11 @@ Tanguy Lefort
 <div class="cell output typewriter2 fragment">
 
 </div>
-</div>
-</div>
+</div></div>
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section></section>
     </div>
@@ -798,7 +791,7 @@ Tanguy Lefort
       });
     </script>
     <script type="ojs-module-contents">
-    {"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"Plotly = require('plotly.js-dist');\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"{\n  var data = [{\n      values: [3, 8, 7, 22, 60],\n      labels: [\"wikipedia\", \"Books1\", \"Books2\", \"Webtext2\", \"Common Crawl\"],\n      textinfo: \"label+percent\", \n      type: \"pie\",\n      marker: {\n          colors: [\"lightcyan\", \"cyan\", \"royalblue\", \"darkblue\", \"gold\"]\n      }\n  }];\n\n  var layout = {\n    template: 'plotly_light',\n    paper_bgcolor: \"rgba(0,0,0,0)\",\n    plot_bgcolor: \"rgba(0,0,0,0)\",\n    font: {\n        size: 26,\n        color: \"white\"\n    },\n    margin: {\"t\": 0, \"b\": 0, \"l\": 0, \"r\": 0},\n    showlegend: false\n  };\n\n  const div = document.createElement('div');\n  Plotly.newPlot(div, data, layout,{displayModeBar: false});\n  return div;\n}\n"}]}
+    eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlBsb3RseSA9IHJlcXVpcmUoJ3Bsb3RseS5qcy1kaXN0Jyk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ7XG4gIHZhciBkYXRhID0gW3tcbiAgICAgIHZhbHVlczogWzMsIDgsIDcsIDIyLCA2MF0sXG4gICAgICBsYWJlbHM6IFtcIndpa2lwZWRpYVwiLCBcIkJvb2tzMVwiLCBcIkJvb2tzMlwiLCBcIldlYnRleHQyXCIsIFwiQ29tbW9uIENyYXdsXCJdLFxuICAgICAgdGV4dGluZm86IFwibGFiZWwrcGVyY2VudFwiLOKAr1xuICAgICAgdHlwZTogXCJwaWVcIixcbiAgICAgIG1hcmtlcjoge1xuICAgICAgICAgIGNvbG9yczogW1wibGlnaHRjeWFuXCIsIFwiY3lhblwiLCBcInJveWFsYmx1ZVwiLCBcImRhcmtibHVlXCIsIFwiZ29sZFwiXVxuICAgICAgfVxuICB9XTtcblxuICB2YXIgbGF5b3V0ID0ge1xuICAgIHRlbXBsYXRlOiAncGxvdGx5X2xpZ2h0JyxcbiAgICBwYXBlcl9iZ2NvbG9yOiBcInJnYmEoMCwwLDAsMClcIixcbiAgICBwbG90X2JnY29sb3I6IFwicmdiYSgwLDAsMCwwKVwiLFxuICAgIGZvbnQ6IHtcbiAgICAgICAgc2l6ZTogMjYsXG4gICAgICAgIGNvbG9yOiBcIndoaXRlXCJcbiAgICB9LFxuICAgIG1hcmdpbjoge1widFwiOiAwLCBcImJcIjogMCwgXCJsXCI6IDAsIFwiclwiOiAwfSxcbiAgICBzaG93bGVnZW5kOiBmYWxzZVxuICB9O1xuXG4gIGNvbnN0IGRpdiA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuICBQbG90bHkubmV3UGxvdChkaXYsIGRhdGEsIGxheW91dCx7ZGlzcGxheU1vZGVCYXI6IGZhbHNlfSk7XG4gIHJldHVybiBkaXY7XG59XG4ifV19
     </script>
     <script type="module">
     if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
@@ -840,18 +833,7 @@ Tanguy Lefort
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -883,7 +865,52 @@ Tanguy Lefort
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+              // target, if specified
+              link.setAttribute("target", "_blank");
+              if (link.getAttribute("rel") === null) {
+                link.setAttribute("rel", "noopener");
+              }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -920,7 +947,11 @@ Tanguy Lefort
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
@@ -960,21 +991,6 @@ Tanguy Lefort
           });
         }
       }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-        }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-              // target, if specified
-              link.setAttribute("target", "_blank");
-          }
-        }
     });
     </script>
     
