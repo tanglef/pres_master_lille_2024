@@ -15,11 +15,14 @@
 :::{.column width="50%"}
 
 ```{ojs}
+Plotly = require('plotly.js-dist');
+```
+
+```{ojs}
 //| label: dataset-repartition
 //| fig-cap: Repartition of the training dataset
 //| fig-align: center
 {
-  Plotly = require('plotly.js-dist');
   var data = [{
       values: [3, 8, 7, 22, 60],
       labels: ["wikipedia", "Books1", "Books2", "Webtext2", "Common Crawl"],
