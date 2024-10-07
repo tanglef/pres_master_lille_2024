@@ -1,0 +1,42 @@
+project:
+  render:
+    - human_in_the_loop.qmd
+  resources: images/*
+
+title: "Keeping humans in the loop via citizen science"
+subtitle: ""
+
+author:
+  - name: Tanguy Lefort
+    email: tanguy.lefort@inria.fr
+    affiliations: INRIA
+
+license: CC BY-SA
+
+# bibliography: references.bib
+# csl: ieee.csl
+
+date: 2024-07-05
+format:
+  revealjs:
+    code-overflow: wrap
+    code-line-numbers: false
+    center: true
+    navigation-mode: vertical
+    transition: slide
+    slide-number: c/t
+    background-transition: fade
+    controls-layout: bottom-right
+    chalkboard: false
+    menu: false
+    theme:
+      - style.scss
+    section-divs: false
+    link-external-newwindow: true
+    appearance:
+      autoappear: false
+      appearparents: false
+    toc: true
+    toc-depth: 1
+execute:
+  freeze: auto

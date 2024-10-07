@@ -1,0 +1,70 @@
+/*-- scss:uses --*/
+
+/*-- scss:functions --*/
+
+/*-- scss:defaults --*/
+
+/*-- scss:mixins --*/
+
+/*-- scss:rules --*/
+
+@import "typed";
+
+%typewriter1 {
+    @include typed(" ", (type:0.05), (caret:false, iterations:1, end-on:"Here are two papers by Trevor Tibshirani related to crowdsourced datasets:    'Crowdsourced Data Collection for Biological Research' - This paper discusses methodologies for collecting and utilizing crowdsourced data in biological studies. 'Statistical Challenges in Crowdsourcing' - This work addresses the statistical methods needed to handle data from crowdsourcing platforms effectively."
+            ));
+}
+
+%typewriter2 {
+    @include typed(" ", (type:0.05), (caret:false, iterations:1, end-on:"You're right. Trevor Tibshirani is primarily known for his work in statistics and machine learning, not specifically on crowdsourced datasets."));
+}
+
+.column {
+    >.typewriter1.visible {
+        @extend %typewriter1;
+    }
+
+    >.typewriter2.visible {
+        @extend %typewriter2;
+    }
+
+}
+
+// svg:not(.nostretch) {
+//     width: 60%;
+//     height: auto;
+// }
+
+svg[class^="plot-"] {
+    background-color: alpha($color: #000000);
+}
+
+div[class^="ojs-"] {
+    label {
+        font-size: 0.7em;
+    }
+
+    input[type="number"] {
+        width: 4em;
+        color: #000000;
+        font-size: 0.4em;
+    }
+}
+
+img:not(.noinvert) {
+    filter: invert(80%);
+}
+
+div[data-src="images/hallucinations-human.svg"]>svg {
+    width: 100%;
+    height: auto;
+}
+
+.cell-output-stdout>pre>code {
+    font-size: 1.5em;
+    line-height: 1em;
+}
+
+#qrcode>img {
+    width: 400px;
+}
