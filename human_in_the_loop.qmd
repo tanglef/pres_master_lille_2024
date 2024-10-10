@@ -149,6 +149,7 @@ animation:
 
 ::::
 
+
 ::::{.column width="50%"}
 
 []{.fragment }
@@ -327,7 +328,9 @@ Angelova (2004):"Difficult examples are those which obstruct the learning proces
 
 . . .
 
-![](./images/perf_alignment.png){width=200%}
+![](./images/perf_alignment.png){width=100%}
+
+---
 
 ## Sentiment analysis
 
