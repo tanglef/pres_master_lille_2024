@@ -316,7 +316,7 @@ Angelova (2004):"Difficult examples are those which obstruct the learning proces
 
 . . .
 
-![](./images/workf.png)
+![](./images/workf.png){width="100%"}
 
 
 ## Improve performance and alignment
@@ -413,7 +413,7 @@ Also: Surprise (0.1) and boredom (0.04)
 
 ### Map of sentiments
 
-![](./images/sentiment_analysis.png)
+![](./images/sentiment_analysis.png){width="100%"}
 
 ---
 
