@@ -92,7 +92,7 @@ Underrepresentation on the web means less accuracy and more hallucinations!
 
 ## Your feedback is informative
 
-<!-- :::::{.columns}
+:::::{.columns}
 
 ::::{.column width="50%"}
 
@@ -172,7 +172,7 @@ But tibshirani has never worked on crowdsourced datasets
 
 ::::
 
-::::: -->
+:::::
 
 # Human-in-the-loop
 
