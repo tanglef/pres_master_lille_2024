@@ -520,7 +520,24 @@ Tanguy Lefort
 <h2>Your feedback is informative</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div data-animate="" data-src="./images/hallucinations-human.svg"><!-- setup:
+<div class="r-stack">
+<p><img data-src="./images/hallucinations-human_1.svg"></p>
+<p><img data-src="./images/hallucinations-human_2.svg"></p>
+<p><img data-src="./images/hallucinations-human_3.svg"></p>
+<p><img data-src="./images/hallucinations-human_4.svg"></p>
+<p><img data-src="./images/hallucinations-human_5.svg"></p>
+</div>
+</div><div class="column fragment" style="width:50%;">
+<ul>
+<li>Give me a paper of tibshirani about crowdsourced datasets</li>
+<li>Here is a paper by Trevor Tibshirani related to crowdsourced datasets: ‘Crowdsourced Data Collection for Biological Research’ […].</li>
+<li>But tibshirano did not write papers on crowdsourcing</li>
+<li>You’re right. Trevor Tibshirani is primarily known for his work in statistics and machine learning […]</li>
+</ul>
+</div></div>
+<!--
+```yaml { .animate src="./images/hallucinations-human.svg" style="width: 100%; height: 100%" }
+setup:
   - element: g[inkscape\:groupmode="layer"]
     modifier: "opacity"
     parameters: [0]
@@ -567,18 +584,35 @@ animation:
       parameters: [0]
     - element: g[inkscape\:label="Generated"]
       modifier: "opacity"
-      parameters: [0] --></div>
-</div><div class="column" style="width:50%;">
-<p><span class="fragment"></span> <span class="fragment"></span> <span class="fragment"></span></p>
-<pre class="plain fragment"><code>Give me a paper of tibshirani about crowdsourced datasets</code></pre>
-<div class="cell output typewriter1 fragment">
+      parameters: [0]
+```
 
-</div>
-<pre class="plain fragment"><code>But tibshirani has never worked on crowdsourced datasets</code></pre>
-<div class="cell output typewriter2 fragment">
+::::
 
-</div>
-</div></div>
+
+::::{.column width="50%"}
+
+[]{.fragment }
+[]{.fragment }
+[]{.fragment }
+
+```{.plain .fragment}
+Give me a paper of tibshirani about crowdsourced datasets
+```
+
+:::{.cell .output .typewriter1 .fragment }
+:::
+
+
+```{.plain .fragment }
+But tibshirani has never worked on crowdsourced datasets
+```
+:::{.cell .output .typewriter2 .fragment }
+:::
+
+::::
+
+::::: -->
 </section></section>
 <section>
 <section id="human-in-the-loop" class="title-slide slide level1 center">
