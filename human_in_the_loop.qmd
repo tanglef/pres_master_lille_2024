@@ -360,7 +360,7 @@ Angelova (2004):"Difficult examples are those which obstruct the learning proces
 
 ## Sentiment analysis
 
-- Humans have preferenes: applications to economics, marketing, recommender systems on streaming platforms
+- Humans have preferences: applications to economics, marketing, recommender systems on streaming platforms
 - Preferences $\neq$ wellbeing $\neq$ choices (current limitation in recommender systems like Netflix)
 
 . . .
