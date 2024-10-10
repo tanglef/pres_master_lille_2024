@@ -42,7 +42,7 @@ execute:
   freeze: auto
 
 toc-depth: 1
-tbl-colwidths: [60, 50, 40, 30, 30]
+# tbl-colwidths: [60, 50, 40, 30, 30]
 revealjs-plugins:
   - animate
 filters:
