@@ -7,7 +7,9 @@
 <link href="human_in_the_loop_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="human_in_the_loop_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="human_in_the_loop_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="human_in_the_loop_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="human_in_the_loop_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="human_in_the_loop_files/libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="human_in_the_loop_files/libs/quarto-contrib/videojs/video-js.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Tanguy Lefort">
@@ -416,7 +418,10 @@ Tanguy Lefort
 <h2 id="toc-title">Table of contents</h2>
 <ul>
 <li><a href="#/chatgpt-training" id="/toc-chatgpt-training">ChatGPT training</a></li>
-<li><a href="#/human-in-the-loop-pipeline" id="/toc-human-in-the-loop-pipeline">Human-in-the-loop pipeline</a></li>
+<li><a href="#/human-in-the-loop" id="/toc-human-in-the-loop">Human-in-the-loop</a></li>
+<li><a href="#/annotate-yes-but-what" id="/toc-annotate-yes-but-what">Annotate yes, but what?</a></li>
+<li><a href="#/large-scale-crowdsourcing-for-botanical-identification" id="/toc-large-scale-crowdsourcing-for-botanical-identification">Large scale Crowdsourcing for botanical identification</a></li>
+<li><a href="#/conclusion" id="/toc-conclusion">Conclusion</a></li>
 </ul>
 </nav>
 </section>
@@ -489,9 +494,8 @@ Tanguy Lefort
 <p>Underrepresentation on the web means less accuracy and more hallucinations!</p>
 <ul>
 <li>Other data (chosen quality)</li>
-<li>Weighted sampling: <em>Wikipedia</em>=5CommonCrawl, Books1=20ComonCrawl,…</li>
+<li>Weighted sampling: Wikipedia=5CommonCrawl, Books1=20ComonCrawl,…</li>
 </ul>
-<p>Copyright issues, be careful no way to check truthfulness</p>
 </div></div>
 </section>
 <section id="training-with-humans" class="slide level2 center">
@@ -516,57 +520,57 @@ Tanguy Lefort
 <h2>Your feedback is informative</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="sourceCode" id="cb3" src="images/hallucinations-human.svg" style="width: 100%; height: 100%"><pre class="sourceCode yaml animate code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">setup</span><span class="kw">:</span></span>
-<span id="cb3-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:groupmode="layer"]</span></span>
-<span id="cb3-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">0</span><span class="kw">]</span></span>
-<span id="cb3-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Generated"] &gt; path</span></span>
-<span id="cb3-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> attr</span></span>
-<span id="cb3-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">"d"</span><span class="kw">:</span><span class="at"> </span><span class="st">"M 300.20352,-500.787593 C 126.77769,161.28468 127.22354,159.90813 127.22354,159.90813 L -300.809962,300.1924466 v 0"</span><span class="at"> </span><span class="kw">}</span><span class="at"> </span><span class="kw">]</span></span>
-<span id="cb3-8"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">animation</span><span class="kw">:</span></span>
-<span id="cb3-9"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
-<span id="cb3-10"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:groupmode="layer"]</span></span>
-<span id="cb3-11"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-12"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">0</span><span class="kw">]</span></span>
-<span id="cb3-13"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
-<span id="cb3-14"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Truth"]</span></span>
-<span id="cb3-15"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-16"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
-<span id="cb3-17"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
-<span id="cb3-18"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Likelihood"]</span></span>
-<span id="cb3-19"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-20"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
-<span id="cb3-21"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
-<span id="cb3-22"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Common"]</span></span>
-<span id="cb3-23"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-24"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
-<span id="cb3-25"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="kw">[]</span></span>
-<span id="cb3-26"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
-<span id="cb3-27"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Generated"]</span></span>
-<span id="cb3-28"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-29"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
-<span id="cb3-30"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Generated"] &gt; path</span></span>
-<span id="cb3-31"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> attr</span></span>
-<span id="cb3-32"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">duration</span><span class="kw">:</span><span class="at"> </span><span class="dv">3000</span></span>
-<span id="cb3-33"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">"d"</span><span class="kw">:</span><span class="at"> </span><span class="st">"M 156.20352,-49.787593 C 126.77769,161.28468 127.22354,159.90813 127.22354,159.90813 L -24.809962,6.1924466 v 0"</span><span class="at"> </span><span class="kw">}</span><span class="at"> </span><span class="kw">]</span></span>
-<span id="cb3-34"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Hallucinations"]</span></span>
-<span id="cb3-35"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-36"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">duration</span><span class="kw">:</span><span class="at"> </span><span class="dv">1500</span></span>
-<span id="cb3-37"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
-<span id="cb3-38"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="kw">[]</span></span>
-<span id="cb3-39"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span></span>
-<span id="cb3-40"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Human"]</span></span>
-<span id="cb3-41"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-42"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span>
-<span id="cb3-43"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Hallucinations"]</span></span>
-<span id="cb3-44"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-45"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">0</span><span class="kw">]</span></span>
-<span id="cb3-46"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">element</span><span class="kw">:</span><span class="at"> g[inkscape\:label="Generated"]</span></span>
-<span id="cb3-47"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">modifier</span><span class="kw">:</span><span class="at"> </span><span class="st">"opacity"</span></span>
-<span id="cb3-48"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">0</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div data-animate="" data-src="images/hallucinations-human.svg"><!-- setup:
+  - element: g[inkscape\:groupmode="layer"]
+    modifier: "opacity"
+    parameters: [0]
+  - element: g[inkscape\:label="Generated"] > path
+    modifier: attr
+    parameters: [ { "d": "M 300.20352,-500.787593 C 126.77769,161.28468 127.22354,159.90813 127.22354,159.90813 L -300.809962,300.1924466 v 0" } ]
+animation:
+  -
+    - element: g[inkscape\:groupmode="layer"]
+      modifier: "opacity"
+      parameters: [0]
+  -
+    - element: g[inkscape\:label="Truth"]
+      modifier: "opacity"
+      parameters: [1]
+  -
+    - element: g[inkscape\:label="Likelihood"]
+      modifier: "opacity"
+      parameters: [1]
+  -
+    - element: g[inkscape\:label="Common"]
+      modifier: "opacity"
+      parameters: [1]
+  - []
+  -
+    - element: g[inkscape\:label="Generated"]
+      modifier: "opacity"
+      parameters: [1]
+    - element: g[inkscape\:label="Generated"] > path
+      modifier: attr
+      duration: 3000
+      parameters: [ { "d": "M 156.20352,-49.787593 C 126.77769,161.28468 127.22354,159.90813 127.22354,159.90813 L -24.809962,6.1924466 v 0" } ]
+    - element: g[inkscape\:label="Hallucinations"]
+      modifier: "opacity"
+      duration: 1500
+      parameters: [1]
+  - []
+  -
+    - element: g[inkscape\:label="Human"]
+      modifier: "opacity"
+      parameters: [1]
+    - element: g[inkscape\:label="Hallucinations"]
+      modifier: "opacity"
+      parameters: [0]
+    - element: g[inkscape\:label="Generated"]
+      modifier: "opacity"
+      parameters: [0] --></div>
 </div><div class="column" style="width:50%;">
 <p><span class="fragment"></span> <span class="fragment"></span> <span class="fragment"></span></p>
-<pre class="plain fragment"><code>Give me 2 papers of tibshirani about crowdsourced datasets</code></pre>
+<pre class="plain fragment"><code>Give me a paper of tibshirani about crowdsourced datasets</code></pre>
 <div class="cell output typewriter1 fragment">
 
 </div>
@@ -576,15 +580,397 @@ Tanguy Lefort
 </div>
 </div></div>
 </section></section>
-<section id="human-in-the-loop-pipeline" class="title-slide slide level1 center">
-<h1>Human-in-the-loop pipeline</h1>
+<section>
+<section id="human-in-the-loop" class="title-slide slide level1 center">
+<h1>Human-in-the-loop</h1>
+
+</section>
+<section id="pipeline" class="slide level2 center">
+<h2>Pipeline</h2>
 <div class="r-stack">
 <p><img data-src="images/global_pipeline1.png" class="fragment"></p>
 <p><img data-src="images/global_pipeline2.png" class="fragment"></p>
 </div>
+</section>
+<section id="data-annotation" class="slide level2 center">
+<h2>Data annotation</h2>
+<h3 id="where-not-exhaustive">Where? (not exhaustive)</h3>
+<div>
+<ul>
+<li class="fragment">Paid workers: Amazon mechanical turk, Google crowd</li>
+<li class="fragment">Gamified users: Duolingo, Eyewire</li>
+<li class="fragment">Implicit crowdsourcing: Captcha, Spotify, SNCF</li>
+<li class="fragment">Voluntary unpaid AND not gamified work for communities: Tournesol, Pl@ntNet</li>
+<li class="fragment"><span style="color:red;">Ethically “challenging” projects/teams “sometimes”: Sama, BluServo (Texas), Toloka via NTechLab and Tevian,…</span></li>
+</ul>
+</div>
+</section>
+<section class="slide level2 center">
+
+<h3 id="learn-from-the-collected-annotation">Learn from the collected annotation</h3>
+
+<img data-src="images/questioning_labels_6.svg" class="r-stretch"></section>
+<section class="slide level2 center">
+
+<h3 id="label-aggregation">Label aggregation</h3>
+<h4 id="weighted-majority-vote">(Weighted) Majority vote</h4>
+<p>K classes, worker <span class="math inline">\(j\)</span> with weight <span class="math inline">\(w_j&gt;0\)</span> answers label <span class="math inline">\(y_i^j\)</span></p>
+<p><span class="math display">\[
+\hat{y}_i^{WMV} = \underset{k\in[K]}{\arg\max}\sum_{j} w_j \mathbf{1}(y_i^j=k)
+\]</span></p>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li><strong>Pros:</strong> Easy for theory (depending on the weight used), understandable</li>
+<li><strong>Cons:</strong> Sensitive to poorly performing workers or class dependent skills</li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<h4 id="dawid-and-skene">Dawid and Skene</h4>
+<div>
+<ul>
+<li class="fragment">Model each worker as a confusion matrix (size <span class="math inline">\(K\times K\)</span>) noted <span class="math inline">\(\pi^j\)</span></li>
+<li class="fragment"><span class="math inline">\(\pi_{k,\ell}^j=\mathbb{P}(\text{worker }j \text{ to answer }\ell \text{ while true label is } k)\)</span></li>
+<li class="fragment"><span class="math inline">\(y_i^j|y_i^\star=k \sim \mathcal{M}(\pi^j_{k,\bullet})\)</span></li>
+<li class="fragment">Maximum likelihood estimation of <span class="math inline">\(\pi^j\)</span> and <span class="math inline">\(y_i^\star\)</span> (EM algorithm)</li>
+</ul>
+</div>
+</section>
+<section class="slide level2 center">
+
+<h4 id="dawid-and-skene-example">Dawid and Skene example</h4>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="./images/confusion_matrix.svg"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./images/spammer_dog.svg"></p>
+</div></div>
+</section>
+<section class="slide level2 center">
+
+<h4 id="toy-data-results">Toy-data results</h4>
+<ul>
+<li>BlueBirds dataset (binary classification): 39 workers, 108 tasks</li>
+<li>Metrics: label recovery accuracy <span class="math display">\[
+\frac{1}{n}\sum_{i=1}^n \mathbf{1}(\hat{y}_i=y_i^\star)
+\]</span></li>
+</ul>
+<table class="caption-top">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 24%">
+<col style="width: 19%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>MV</th>
+<th>NS</th>
+<th>DS</th>
+<th>GLAD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Label Recovery Accuracy</td>
+<td>0.75</td>
+<td>0.75</td>
+<td>0.89</td>
+<td>0.72</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2 center">
+
+<h3 id="issues-with-ds">Issues with DS</h3>
+<div>
+<ul>
+<li class="fragment">What is the main issue with DS model in practice?</li>
+<li class="fragment"><span class="math inline">\(K\times K\)</span> parameters to estimate for each worker: does not scale with large number of classes</li>
+<li class="fragment">Alternative: Clustered DS (2018) highly unstable</li>
+<li class="fragment">Many variants (for small-medium size dataset)</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="annotate-yes-but-what" class="title-slide slide level1 center">
+<h1>Annotate yes, but what?</h1>
+
+</section>
+<section id="full-dataset-annotation" class="slide level2 center">
+<h2>Full dataset annotation</h2>
+<ul>
+<li>Costly</li>
+<li>Lots of data to aggregate</li>
+<li>Needs lots of users/workers</li>
+<li>Modern ML architectures can often learn without labels first</li>
+</ul>
+<div class="fragment">
+<div>
+<ul>
+<li class="fragment">The rule of 5 needs to disappear!! (please)</li>
+<li class="fragment"><strong>Can we focus on difficult images?</strong></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="what-is-a-difficult-image-in-a-dataset" class="slide level2 center">
+<h2>What is a difficult image in a dataset?</h2>
+<div class="fragment">
+<ul>
+<li>Can an image be intrinsically difficult?</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>How would you quantify an image’s difficulty from crowdsourced votes?</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Angelova (2004):“Difficult examples are those which obstruct the learning process or mislead the learning algorithm or those which are impossible to reconcile with the rest of the examples”</p>
+</div>
+</section>
+<section id="annotation-to-find-issues-in-ai-predictions" class="slide level2 center">
+<h2>Annotation to find issues in AI predictions</h2>
+<ul>
+<li>ClickMe gamified platform (by Thomas Serre)</li>
+<li><strong>Goal:</strong> harmonize AI decisions and human reflexions</li>
+</ul>
+<div class="fragment">
+<p><img data-src="./images/workf.png"></p>
+<div class="attribution">
+<p><a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/3d681cc4487b97c08e5aa67224dd74f2-Paper-Conference.pdf">Fet et al.&nbsp;(2022)</a></p>
+</div>
+</div>
+</section>
+<section id="improve-performance-and-alignment" class="slide level2 center">
+<h2>Improve performance and alignment</h2>
+<ul>
+<li><strong>How:</strong> loss function penalizes feature importance maps in addition to classification performance (Cross Entropy)</li>
+</ul>
+<div class="fragment">
+<p><img data-src="./images/perf_alignment.png" style="width:200.0%"></p>
+</div>
+</section>
+<section id="sentiment-analysis" class="slide level2 center">
+<h2>Sentiment analysis</h2>
+<ul>
+<li>Humans have preferenes: applications to economics, marketing, recommender systems on streaming platforms</li>
+<li>Preferences <span class="math inline">\(\neq\)</span> wellbeing <span class="math inline">\(\neq\)</span> choices (current limitation in recommender systems like Netflix)</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Video Cognitive Empathy (60K videos, 27 emotions, 15 videos per human)</li>
+</ul>
+<div class="attribution">
+<p><a href="https://arxiv.org/pdf/2210.10039">Mazika et al.&nbsp;(2022)</a></p>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<h3 id="examples">Examples</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<video id="video_shortcode_videojs_video1" width="600%" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="./images/00003.mp4"></video>
+</div><div class="column fragment" style="width:40%;">
+<p>top-3:</p>
+<ul>
+<li>Amusement (0.21)</li>
+<li>Empathic Pain (0.14)</li>
+<li>Surprise (0.13)</li>
+</ul>
+<p>Also: boredom (0.12) and confusion (0.05)</p>
+</div></div>
+</section>
+<section class="slide level2 center">
+
+<h3 id="examples-1">Examples</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<video id="video_shortcode_videojs_video2" width="600%" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="./images/00083.mp4"></video>
+</div><div class="column fragment" style="width:40%;">
+<p>top-3:</p>
+<ul>
+<li>Awe/wonder (0.22)</li>
+<li>Surprise Pain (0.21)</li>
+<li>Admiration (0.14)</li>
+</ul>
+<p>Also: confusion (0.12) and anxiety (0.03)</p>
+</div></div>
+</section>
+<section class="slide level2 center">
+
+<h3 id="examples-2">Examples</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<video id="video_shortcode_videojs_video3" width="600%" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="./images/01358.mp4"></video>
+</div><div class="column fragment" style="width:40%;">
+<p>top-3:</p>
+<ul>
+<li>Fear (0.4)</li>
+<li>Horror (0.37)</li>
+<li>Interest (0.11)</li>
+</ul>
+<p>Also: Surprise (0.1) and boredom (0.04)</p>
+</div></div>
+</section>
+<section class="slide level2 center">
+
+<h3 id="map-of-sentiments">Map of sentiments</h3>
+
+<img data-src="./images/sentiment_analysis.png" class="r-stretch"></section>
+<section class="slide level2 center">
+
+<h3 id="use-in-practice-of-sentiment-analysis">Use in practice of sentiment analysis</h3>
+<ul>
+<li><p>User-user recommendation system including sentiment analysis on customer reviews (ratings + text)</p></li>
+<li><p>recommend items based on user-user similarity (adjusted cosine)</p></li>
+</ul>
+<p><span class="math display">\[
+\mathrm{Adjcos}(u_i, u_j) = \frac{(u_i-\mu_i)^\top (u_j-\mu_j)}{\|u_i-\mu_i\|\|u_j-\mu_j\|}
+\]</span></p>
+<div class="attribution">
+<p><a href="https:%20//%20medium.com/data-science-at-microsoft/improving-product-recommendation-systems-using-sentiment-analysis-52ead43211dd">Aakash Goel(2022)</a></p>
+</div>
+</section>
+<section class="slide level2 center">
+
+<h3 id="use-in-practice-of-sentiment-analysis-1">Use in practice of sentiment analysis</h3>
+<ul>
+<li>Compute expected ratings for each user-item pair</li>
+</ul>
+
+<img data-src="./images/ratings_pred.svg" style="width:80.0%" class="r-stretch"></section>
+<section class="slide level2 center">
+
+<h3 id="use-in-practice-of-sentiment-analysis-2">Use in practice of sentiment analysis</h3>
+<ul>
+<li>Get prediction of items of interest</li>
+<li>Recommend item with highest score</li>
+</ul>
+
+<img data-src="./images/ratings_interest.svg" class="r-stretch"></section>
+<section class="slide level2 center">
+
+<h3 id="use-in-practice-of-sentiment-analysis-3">Use in practice of sentiment analysis</h3>
+<div>
+<ul>
+<li class="fragment">Take into account reviews: “It’s a pen”, “Just a pen” vs “Excellent CD but arrived broken”</li>
+<li class="fragment">Use a model to predict a “positive score” given multiple reviews (Logistic regression binary classification)</li>
+<li class="fragment">Take it into account in final recommendation: <span class="math display">\[
+\mathrm{rec\ item}= \mathrm{argmax}\{\alpha
+(\text{predicted rating}) + \beta\text{(sentiment scoring)}\}
+\]</span></li>
+</ul>
+</div>
+<!--  # AUM
+
+- Area Under the Margin(Pleiss et al. 2020)
+- Given a classifier $\mathcal{C}$ and $T$ iterations(epochs) find ambiguous images
+- Order score vector $\mathcal{C}(x_i)_{[1]}\geq \mathcal{C}(x_i)_{[2]}\geq \dots$
+
+$$
+\mathrm{AUM}(x_i, y_i) = \frac{1}{T}\sum_{t = 1} ^ T \bigg(\mathcal{C}(x_i)_{y_i} - \mathcal{C}(x_i)_{[2]}\bigg)
+$$
+
+. . .
+
+- High is good
+- Negative or close to zero is bad
+
+# WAUM
+- Idea: Average over workers ( and use probabilities not scores to avoid scale effects)
+
+$$
+\mathrm{WAUM}(x_i) = \frac{1}{S}\sum_{j} s ^ j(x_i) \mathrm{AUM}(x_i, y_i ^ j)
+$$
+
+. . .
+
+- Weighted average with weights $s ^ j(x_i) =\langle\mathrm{\pi ^ j}, \sigma(\mathcal{C}(x_i))\rangle$
+
+# WAUM in practice: quantitative
+
+- remove images with low WAUM (quantile 1 %)
+
+![](./images/acc_labelme.svg)
+![](./images/legend_ablation_study.svg)
+-->
+</section></section>
+<section>
+<section id="large-scale-crowdsourcing-for-botanical-identification" class="title-slide slide level1 center">
+<h1>Large scale Crowdsourcing for botanical identification</h1>
+<ul>
+<li>Take a picture &gt; Get most likely species</li>
+<li>Annotate other’s pictures</li>
+</ul>
+</section>
+<section id="plntnet-aggregation" class="slide level2 center">
+<h2>Pl@ntNet aggregation</h2>
+
+<img data-src="./images/schema_plantnet_aggregation.svg" class="r-stretch"></section>
+<section id="example-initial-setting" class="slide level2 center">
+<h2>Example (initial setting)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="./images/histplot_conf_init.svg"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./images/histplot_acc_init.svg"></p>
+</div></div>
+</section>
+<section id="example-switch" class="slide level2 center">
+<h2>Example (switch)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="./images/histplot_conf_switch.svg"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./images/histplot_acc_switch.svg"></p>
+</div></div>
+</section>
+<section id="example-invalidate" class="slide level2 center">
+<h2>Example (invalidate)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="./images/histplot_conf_invalidate.svg"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./images/histplot_acc_invalidate.svg"></p>
+</div></div>
+</section>
+<section id="dataset" class="slide level2 center">
+<h2>Dataset</h2>
+<ul>
+<li>South Western Flora observations since 2017</li>
+<li>+820 000 users, more than 11 000 species</li>
+<li>+6.5M of observations</li>
+<li>+9M votes</li>
+</ul>
+<div class="fragment">
+<p><strong>Imbalance</strong> 80% of observations are represented by 10% of total votes</p>
+</div>
+</section>
+<section id="performance" class="slide level2 center">
+<h2>Performance</h2>
+
+<img data-src="./images/both_accuracies.svg" class="r-stretch"></section></section>
+<section id="conclusion" class="title-slide slide level1 center">
+<h1>Conclusion</h1>
+<ul>
+<li>Crowdsourcing helps models perform better</li>
+<li>Keeping human in the loop can help detect issues in data</li>
+<li><strong>Warning</strong>: only doing it once at the beginning will not keep the model in check when deployed!! Listen to the feedback and ask for it</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[Thank\ you\]</span></p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </div>
 </section>
@@ -598,6 +984,9 @@ Tanguy Lefort
   <script src="human_in_the_loop_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="human_in_the_loop_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="human_in_the_loop_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="human_in_the_loop_files/libs/revealjs/plugin/reveal-animate/plugin.js"></script>
+  <script src="human_in_the_loop_files/libs/revealjs/plugin/reveal-animate/svg.min.js"></script>
+  <script src="human_in_the_loop_files/libs/revealjs/plugin/reveal-animate/js-yaml.min.js"></script>
   <script src="human_in_the_loop_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -619,6 +1008,7 @@ Tanguy Lefort
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'animate': {"autoplay":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -789,7 +1179,7 @@ Tanguy Lefort
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealAnimate, QuartoSupport,
 
           RevealMath,
           RevealNotes,
@@ -1001,6 +1391,9 @@ Tanguy Lefort
       }
     });
     </script>
+    <script>videojs(video_shortcode_videojs_video1);</script>
+    <script>videojs(video_shortcode_videojs_video2);</script>
+    <script>videojs(video_shortcode_videojs_video3);</script>
     
 
 </body></html>
