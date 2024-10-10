@@ -100,19 +100,20 @@ Underrepresentation on the web means less accuracy and more hallucinations!
 
 ![](./images/hallucinations-human_1.svg)
 
-![](./images/hallucinations-human_2.svg)
+![](./images/hallucinations-human_2.svg){.fragment}
 
-![](./images/hallucinations-human_3.svg)
+![](./images/hallucinations-human_3.svg){.fragment}
 
-![](./images/hallucinations-human_4.svg)
+![](./images/hallucinations-human_4.svg){.fragment}
 
-![](./images/hallucinations-human_5.svg)
+![](./images/hallucinations-human_5.svg){.fragment}
 :::
+
 ::::
-::::{.column width="50%" .fragment}
+::::{.column width="50%" .fragment style="font-size: 80%;"}
 - Give me a paper of tibshirani about crowdsourced datasets
 - Here is a paper by Trevor Tibshirani related to crowdsourced datasets: 'Crowdsourced Data Collection for Biological Research' [...].
-- But tibshirano did not write papers on crowdsourcing
+- But tibshirani did not write papers on crowdsourcing
 - You're right. Trevor Tibshirani is primarily known for his work in statistics and machine learning [...]
 
 ::::
