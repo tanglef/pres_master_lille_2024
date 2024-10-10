@@ -456,38 +456,37 @@ Tanguy Lefort
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="24" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 23;"><span id="cb2-24"><a href="" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb2-25"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> data <span class="op">=</span> [{</span>
-<span id="cb2-26"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">values</span><span class="op">:</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">22</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span></span>
-<span id="cb2-27"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">labels</span><span class="op">:</span> [<span class="st">"wikipedia"</span><span class="op">,</span> <span class="st">"Books1"</span><span class="op">,</span> <span class="st">"Books2"</span><span class="op">,</span> <span class="st">"Webtext2"</span><span class="op">,</span> <span class="st">"Common Crawl"</span>]<span class="op">,</span></span>
-<span id="cb2-28"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">textinfo</span><span class="op">:</span> <span class="st">"label+percent"</span><span class="op">,</span> </span>
-<span id="cb2-29"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">type</span><span class="op">:</span> <span class="st">"pie"</span><span class="op">,</span></span>
-<span id="cb2-30"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">marker</span><span class="op">:</span> {</span>
-<span id="cb2-31"><a href="" aria-hidden="true" tabindex="-1"></a>          <span class="dt">colors</span><span class="op">:</span> [<span class="st">"lightcyan"</span><span class="op">,</span> <span class="st">"cyan"</span><span class="op">,</span> <span class="st">"royalblue"</span><span class="op">,</span> <span class="st">"darkblue"</span><span class="op">,</span> <span class="st">"gold"</span>]</span>
-<span id="cb2-32"><a href="" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb2-33"><a href="" aria-hidden="true" tabindex="-1"></a>  }]<span class="op">;</span></span>
-<span id="cb2-34"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> layout <span class="op">=</span> {</span>
-<span id="cb2-36"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">template</span><span class="op">:</span> <span class="st">'plotly_light'</span><span class="op">,</span></span>
-<span id="cb2-37"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">paper_bgcolor</span><span class="op">:</span> <span class="st">"rgba(0,0,0,0)"</span><span class="op">,</span></span>
-<span id="cb2-38"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">plot_bgcolor</span><span class="op">:</span> <span class="st">"rgba(0,0,0,0)"</span><span class="op">,</span></span>
-<span id="cb2-39"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">font</span><span class="op">:</span> {</span>
-<span id="cb2-40"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="dt">size</span><span class="op">:</span> <span class="dv">26</span><span class="op">,</span></span>
-<span id="cb2-41"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="dt">color</span><span class="op">:</span> <span class="st">"white"</span></span>
-<span id="cb2-42"><a href="" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb2-43"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">margin</span><span class="op">:</span> {<span class="st">"t"</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="st">"b"</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="st">"l"</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="st">"r"</span><span class="op">:</span> <span class="dv">0</span>}<span class="op">,</span></span>
-<span id="cb2-44"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">showlegend</span><span class="op">:</span> <span class="kw">false</span></span>
-<span id="cb2-45"><a href="" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb2-46"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-47"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> div <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
-<span id="cb2-48"><a href="" aria-hidden="true" tabindex="-1"></a>  Plotly<span class="op">.</span><span class="fu">newPlot</span>(div<span class="op">,</span> data<span class="op">,</span> layout<span class="op">,</span>{<span class="dt">displayModeBar</span><span class="op">:</span> <span class="kw">false</span>})<span class="op">;</span></span>
-<span id="cb2-49"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> div<span class="op">;</span></span>
-<span id="cb2-50"><a href="" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="23" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 22;"><span id="cb2-23"><a href="" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb2-24"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> data <span class="op">=</span> [{</span>
+<span id="cb2-25"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">values</span><span class="op">:</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">22</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span></span>
+<span id="cb2-26"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">labels</span><span class="op">:</span> [<span class="st">"wikipedia"</span><span class="op">,</span> <span class="st">"Books1"</span><span class="op">,</span> <span class="st">"Books2"</span><span class="op">,</span> <span class="st">"Webtext2"</span><span class="op">,</span> <span class="st">"Common Crawl"</span>]<span class="op">,</span></span>
+<span id="cb2-27"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">textinfo</span><span class="op">:</span> <span class="st">"label+percent"</span><span class="op">,</span> </span>
+<span id="cb2-28"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">type</span><span class="op">:</span> <span class="st">"pie"</span><span class="op">,</span></span>
+<span id="cb2-29"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">marker</span><span class="op">:</span> {</span>
+<span id="cb2-30"><a href="" aria-hidden="true" tabindex="-1"></a>          <span class="dt">colors</span><span class="op">:</span> [<span class="st">"lightcyan"</span><span class="op">,</span> <span class="st">"cyan"</span><span class="op">,</span> <span class="st">"royalblue"</span><span class="op">,</span> <span class="st">"darkblue"</span><span class="op">,</span> <span class="st">"gold"</span>]</span>
+<span id="cb2-31"><a href="" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-32"><a href="" aria-hidden="true" tabindex="-1"></a>  }]<span class="op">;</span></span>
+<span id="cb2-33"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> layout <span class="op">=</span> {</span>
+<span id="cb2-35"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">template</span><span class="op">:</span> <span class="st">'plotly_light'</span><span class="op">,</span></span>
+<span id="cb2-36"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">paper_bgcolor</span><span class="op">:</span> <span class="st">"rgba(0,0,0,0)"</span><span class="op">,</span></span>
+<span id="cb2-37"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">plot_bgcolor</span><span class="op">:</span> <span class="st">"rgba(0,0,0,0)"</span><span class="op">,</span></span>
+<span id="cb2-38"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">font</span><span class="op">:</span> {</span>
+<span id="cb2-39"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="dt">size</span><span class="op">:</span> <span class="dv">26</span><span class="op">,</span></span>
+<span id="cb2-40"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="dt">color</span><span class="op">:</span> <span class="st">"white"</span></span>
+<span id="cb2-41"><a href="" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb2-42"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">margin</span><span class="op">:</span> {<span class="st">"t"</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="st">"b"</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="st">"l"</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="st">"r"</span><span class="op">:</span> <span class="dv">0</span>}<span class="op">,</span></span>
+<span id="cb2-43"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">showlegend</span><span class="op">:</span> <span class="kw">false</span></span>
+<span id="cb2-44"><a href="" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb2-45"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> div <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
+<span id="cb2-47"><a href="" aria-hidden="true" tabindex="-1"></a>  Plotly<span class="op">.</span><span class="fu">newPlot</span>(div<span class="op">,</span> data<span class="op">,</span> layout<span class="op">,</span>{<span class="dt">displayModeBar</span><span class="op">:</span> <span class="kw">false</span>})<span class="op">;</span></span>
+<span id="cb2-48"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> div<span class="op">;</span></span>
+<span id="cb2-49"><a href="" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="dataset-repartition" class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="expression">
 
 </div>
-<p>Repartition of the training dataset</p>
 </div>
 </div>
 </div><div class="column" style="width:40%;">
