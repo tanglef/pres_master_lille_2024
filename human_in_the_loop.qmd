@@ -151,7 +151,7 @@ animation:
 
 
 ::::{.column width="50%"}
-
+<!--
 []{.fragment }
 []{.fragment }
 []{.fragment }
@@ -168,7 +168,7 @@ Give me a paper of tibshirani about crowdsourced datasets
 But tibshirani has never worked on crowdsourced datasets
 ```
 :::{.cell .output .typewriter2 .fragment }
-:::
+::: -->
 
 ::::
 
