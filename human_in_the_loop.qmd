@@ -20,7 +20,6 @@ Plotly = require('plotly.js-dist');
 
 ```{ojs}
 //| label: dataset-repartition
-//| fig-cap: Repartition of the training dataset
 //| fig-align: center
 {
   var data = [{
