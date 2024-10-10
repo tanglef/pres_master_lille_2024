@@ -310,12 +310,20 @@ $$
 Angelova (2004):"Difficult examples are those which obstruct the learning process or mislead the learning algorithm or those which are impossible to reconcile with the rest of the examples"
 
 ## Annotation to find issues in AI predictions
-![](./images/workf.png){width="50%"}
 
-. . .
+::::{.columns}
+:::{.column width="50%"}
+
+![](./images/workf.png){width="70%"}
+
+:::
+:::{.column width="50%" .fragment}
 
 - ClickMe gamified platform (by Thomas Serre)
 - **Goal:** harmonize AI decisions and human reflexions (Fet et al. 2022)
+
+:::
+::::
 
 ## Improve performance and alignment
 
