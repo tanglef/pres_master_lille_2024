@@ -312,23 +312,20 @@ Angelova (2004):"Difficult examples are those which obstruct the learning proces
 ## Annotation to find issues in AI predictions
 
 - ClickMe gamified platform (by Thomas Serre)
-- **Goal:** harmonize AI decisions and human reflexions
+- **Goal:** harmonize AI decisions and human reflexions (Fet et al. 2022)
 
 . . .
 
 ![](./images/workf.png)
 
-:::attribution
-[Fet et al. (2022)](https://proceedings.neurips.cc/paper_files/paper/2022/file/3d681cc4487b97c08e5aa67224dd74f2-Paper-Conference.pdf)
-:::
 
 ## Improve performance and alignment
 
-- **How:** loss function penalizes feature importance maps in addition to classification performance (Cross Entropy)
+- **How:** loss function penalizes feature importance maps
 
 . . .
 
-![](./images/perf_alignment.png){width=100%}
+![](./images/perf_alignment.png)
 
 ---
 
