@@ -96,7 +96,7 @@ Underrepresentation on the web means less accuracy and more hallucinations!
 
 ::::{.column width="50%"}
 
-```yaml { .animate src="images/hallucinations-human.svg" style="width: 100%; height: 100%" }
+```yaml { .animate src="./images/hallucinations-human.svg" style="width: 100%; height: 100%" }
 setup:
   - element: g[inkscape\:groupmode="layer"]
     modifier: "opacity"
