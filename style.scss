@@ -11,12 +11,12 @@
 @import "typed";
 
 %typewriter1 {
-    @include typed(" ", (type:0.05), (caret:false, iterations:1, end-on:"Here are two papers by Trevor Tibshirani related to crowdsourced datasets:    'Crowdsourced Data Collection for Biological Research' - This paper discusses methodologies for collecting and utilizing crowdsourced data in biological studies. 'Statistical Challenges in Crowdsourcing' - This work addresses the statistical methods needed to handle data from crowdsourcing platforms effectively."
+    @include typed(" ", (type:0.05), (caret:false, iterations:1, end-on:"Here is a paper by Trevor Tibshirani related to crowdsourced datasets: 'Crowdsourced Data Collection for Biological Research' [...]."
             ));
 }
 
 %typewriter2 {
-    @include typed(" ", (type:0.05), (caret:false, iterations:1, end-on:"You're right. Trevor Tibshirani is primarily known for his work in statistics and machine learning, not specifically on crowdsourced datasets."));
+    @include typed(" ", (type:0.05), (caret:false, iterations:1, end-on:"You're right. Trevor Tibshirani is primarily known for his work in statistics and machine learning [...]"));
 }
 
 .column {

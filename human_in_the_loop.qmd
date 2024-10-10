@@ -58,9 +58,8 @@ Plotly = require('plotly.js-dist');
 Underrepresentation on the web means less accuracy and more hallucinations!
 
 - Other data (chosen quality)
-- Weighted sampling: *Wikipedia*=5CommonCrawl, Books1=20ComonCrawl,...
+- Weighted sampling: Wikipedia=5CommonCrawl, Books1=20ComonCrawl,...
 
-Copyright issues, be careful no way to check truthfulness
 :::
 :::::
 
@@ -157,10 +156,12 @@ animation:
 []{.fragment }
 
 ```{.plain .fragment}
-Give me 2 papers of tibshirani about crowdsourced datasets
+Give me a paper of tibshirani about crowdsourced datasets
 ```
+
 :::{.cell .output .typewriter1 .fragment }
 :::
+
 
 ```{.plain .fragment }
 But tibshirani has never worked on crowdsourced datasets
@@ -172,11 +173,407 @@ But tibshirani has never worked on crowdsourced datasets
 
 :::::
 
-# Human-in-the-loop pipeline
+# Human-in-the-loop
+
+## Pipeline
 
 ::: {.r-stack}
 ![](images/global_pipeline1.png){.fragment}
 
 ![](images/global_pipeline2.png){.fragment}
+:::
+
+## Data annotation
+
+### Where? (not exhaustive)
+
+::: {.incremental}
+- Paid workers: Amazon mechanical turk, Google crowd
+- Gamified users: Duolingo, Eyewire
+- Implicit crowdsourcing: Captcha, Spotify, SNCF
+- Voluntary unpaid AND not gamified work for communities: Tournesol, Pl@ntNet
+- [Ethically "challenging" projects/teams "sometimes": Sama, BluServo (Texas), Toloka via NTechLab and Tevian,...]{style="color:red;"}
+:::
+
+---
+
+### Learn from the collected annotation
+
+![](images/questioning_labels_6.svg)
+
+---
+
+### Label aggregation
+
+#### (Weighted) Majority vote
+K classes, worker $j$ with weight $w_j>0$ answers label $y_i^j$
+
+$$
+\hat{y}_i^{WMV} = \underset{k\in[K]}{\arg\max}\sum_{j} w_j \mathbf{1}(y_i^j=k)
+$$
+
+---
+
+- **Pros:** Easy for theory (depending on the weight used), understandable
+- **Cons:** Sensitive to poorly performing workers or class dependent skills
+
+---
+
+#### Dawid and Skene
+
+::: {.incremental}
+
+- Model each worker as a confusion matrix (size $K\times K$) noted $\pi^j$
+- $\pi_{k,\ell}^j=\mathbb{P}(\text{worker }j \text{ to answer }\ell \text{ while true label is } k)$
+- $y_i^j|y_i^\star=k \sim \mathcal{M}(\pi^j_{k,\bullet})$
+- Maximum likelihood estimation of $\pi^j$ and $y_i^\star$ (EM algorithm)
 
 :::
+
+---
+
+#### Dawid and Skene example
+
+
+
+::::{.columns}
+:::{.column width="50%"}
+
+![](./images/confusion_matrix.svg)
+
+:::
+
+:::{.column width="50%"}
+
+![](./images/spammer_dog.svg)
+
+:::
+
+::::
+
+---
+
+#### Toy-data results
+
+- BlueBirds dataset (binary classification): 39 workers, 108 tasks
+- Metrics: label recovery accuracy
+$$
+\frac{1}{n}\sum_{i=1}^n \mathbf{1}(\hat{y}_i=y_i^\star)
+$$
+
+
+| Method | MV   | NS   | DS   | GLAD |
+|--------|------|------|------|------|
+| Label Recovery Accuracy | 0.75 | 0.75 | 0.89 | 0.72 |
+
+
+---
+
+### Issues with DS
+
+:::{.incremental}
+- What is the main issue with DS model in practice?
+- $K\times K$ parameters to estimate for each worker: does not scale with large number of classes
+- Alternative: Clustered DS (2018) highly unstable
+- Many variants (for small-medium size dataset)
+:::
+
+# Annotate yes, but what?
+
+## Full dataset annotation
+
+- Costly
+- Lots of data to aggregate
+- Needs lots of users/workers
+- Modern ML architectures can often learn without labels first
+
+. . .
+
+:::{.incremental}
+- The rule of 5 needs to disappear!! (please)
+- **Can we focus on difficult images?**
+:::
+
+## What is a difficult image in a dataset?
+
+. . .
+
+- Can an image be intrinsically difficult?
+
+. . .
+
+- How would you quantify an image's difficulty from crowdsourced votes?
+
+. . .
+
+Angelova (2004):"Difficult examples are those which obstruct the learning process or mislead the learning algorithm or those which are impossible to reconcile with the rest of the examples"
+
+## Annotation to find issues in AI predictions
+
+- ClickMe gamified platform (by Thomas Serre)
+- **Goal:** harmonize AI decisions and human reflexions
+
+. . .
+
+![](./images/workf.png)
+
+:::attribution
+[Fet et al. (2022)](https://proceedings.neurips.cc/paper_files/paper/2022/file/3d681cc4487b97c08e5aa67224dd74f2-Paper-Conference.pdf)
+:::
+
+## Improve performance and alignment
+
+- **How:** loss function penalizes feature importance maps in addition to classification performance (Cross Entropy)
+
+. . .
+
+![](./images/perf_alignment.png){width=200%}
+
+## Sentiment analysis
+
+- Humans have preferenes: applications to economics, marketing, recommender systems on streaming platforms
+- Preferences $\neq$ wellbeing $\neq$ choices (current limitation in recommender systems like Netflix)
+
+. . .
+
+- Video Cognitive Empathy (60K videos, 27 emotions, 15 videos per human)
+
+:::attribution
+[Mazika et al. (2022)](https://arxiv.org/pdf/2210.10039)
+:::
+
+---
+
+### Examples
+
+
+::::{.columns}
+:::{.column width="60%"}
+
+{{< video ./images/00003.mp4 width="600%" >}}
+
+:::
+:::{.column width=40% .fragment}
+
+top-3:
+
+- Amusement (0.21)
+- Empathic Pain (0.14)
+- Surprise (0.13)
+
+Also: boredom (0.12) and confusion (0.05)
+:::
+::::
+
+---
+
+### Examples
+
+::::{.columns}
+:::{.column width="60%"}
+
+{{< video ./images/00083.mp4 width="600%" >}}
+
+:::
+:::{.column width=40% .fragment}
+
+top-3:
+
+- Awe/wonder (0.22)
+- Surprise Pain (0.21)
+- Admiration (0.14)
+
+Also: confusion (0.12) and anxiety (0.03)
+:::
+::::
+
+---
+
+### Examples
+
+::::{.columns}
+:::{.column width="60%"}
+
+{{< video ./images/01358.mp4 width="600%" >}}
+
+:::
+:::{.column width=40% .fragment}
+
+top-3:
+
+- Fear (0.4)
+- Horror (0.37)
+- Interest (0.11)
+
+Also: Surprise (0.1) and boredom (0.04)
+:::
+::::
+
+---
+
+### Map of sentiments
+
+![](./images/sentiment_analysis.png)
+
+---
+
+### Use in practice of sentiment analysis
+
+- User-user recommendation system including sentiment analysis on customer reviews (ratings + text)
+
+- recommend items based on user-user similarity (adjusted cosine)
+
+$$
+\mathrm{Adjcos}(u_i, u_j) = \frac{(u_i-\mu_i)^\top (u_j-\mu_j)}{\|u_i-\mu_i\|\|u_j-\mu_j\|}
+$$
+
+
+:::attribution
+[Aakash Goel(2022)](https: // medium.com/data-science-at-microsoft/improving-product-recommendation-systems-using-sentiment-analysis-52ead43211dd)
+:::
+
+---
+
+### Use in practice of sentiment analysis
+
+- Compute expected ratings for each user-item pair
+
+![](./images/ratings_pred.svg){width="80%"}
+
+---
+
+### Use in practice of sentiment analysis
+
+- Get prediction of items of interest
+- Recommend item with highest score
+
+![](./images/ratings_interest.svg)
+
+---
+
+### Use in practice of sentiment analysis
+
+:::{.incremental}
+- Take into account reviews: "It's a pen", "Just a pen" vs "Excellent CD but arrived broken"
+- Use a model to predict a "positive score" given multiple reviews (Logistic regression binary classification)
+- Take it into account in final recommendation:
+$$
+\mathrm{rec\ item}= \mathrm{argmax}\{\alpha
+(\text{predicted rating}) + \beta\text{(sentiment scoring)}\}
+$$
+:::
+
+<!--  # AUM
+
+- Area Under the Margin(Pleiss et al. 2020)
+- Given a classifier $\mathcal{C}$ and $T$ iterations(epochs) find ambiguous images
+- Order score vector $\mathcal{C}(x_i)_{[1]}\geq \mathcal{C}(x_i)_{[2]}\geq \dots$
+
+$$
+\mathrm{AUM}(x_i, y_i) = \frac{1}{T}\sum_{t = 1} ^ T \bigg(\mathcal{C}(x_i)_{y_i} - \mathcal{C}(x_i)_{[2]}\bigg)
+$$
+
+. . .
+
+- High is good
+- Negative or close to zero is bad
+
+# WAUM
+- Idea: Average over workers ( and use probabilities not scores to avoid scale effects)
+
+$$
+\mathrm{WAUM}(x_i) = \frac{1}{S}\sum_{j} s ^ j(x_i) \mathrm{AUM}(x_i, y_i ^ j)
+$$
+
+. . .
+
+- Weighted average with weights $s ^ j(x_i) =\langle\mathrm{\pi ^ j}, \sigma(\mathcal{C}(x_i))\rangle$
+
+# WAUM in practice: quantitative
+
+- remove images with low WAUM (quantile 1 %)
+
+![](./images/acc_labelme.svg)
+![](./images/legend_ablation_study.svg)
+-->
+
+
+# Large scale Crowdsourcing for botanical identification
+
+- Take a picture > Get most likely species
+- Annotate other's pictures
+
+## Pl@ntNet aggregation
+
+![](./images/schema_plantnet_aggregation.svg)
+
+## Example (initial setting)
+
+::::{.columns}
+:::{.column width="50%"}
+
+![](./images/histplot_conf_init.svg)
+
+:::
+:::{.column width=50%}
+
+![](./images/histplot_acc_init.svg)
+
+:::
+::::
+
+## Example (switch)
+
+::::{.columns}
+:::{.column width="50%"}
+
+![](./images/histplot_conf_switch.svg)
+
+:::
+:::{.column width=50%}
+
+![](./images/histplot_acc_switch.svg)
+
+:::
+::::
+
+## Example (invalidate)
+
+::::{.columns}
+:::{.column width="50%"}
+
+![](./images/histplot_conf_invalidate.svg)
+
+:::
+:::{.column width=50%}
+
+![](./images/histplot_acc_invalidate.svg)
+
+:::
+::::
+
+
+## Dataset
+
+- South Western Flora observations since 2017
+- +820 000 users, more than 11 000 species
+- +6.5M of observations
+- +9M votes
+
+. . .
+
+**Imbalance** 80% of observations are represented by 10% of total votes
+
+## Performance
+
+![](./images/both_accuracies.svg)
+
+# Conclusion
+
+- Crowdsourcing helps models perform better
+- Keeping human in the loop can help detect issues in data
+- **Warning**: only doing it once at the beginning will not keep the model in check when deployed!! Listen to the feedback and ask for it
+
+. . .
+
+$$Thank\ you$$
