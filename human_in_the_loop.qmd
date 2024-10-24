@@ -467,7 +467,7 @@ $$
 
 - Compute expected ratings for each user-item pair
 
-![](./images/ratings_pred.svg){width="80%"}
+![](./images/ratings_pred.png){width="80%"}
 
 ---
 
@@ -476,7 +476,7 @@ $$
 - Get prediction of items of interest
 - Recommend item with highest score
 
-![](./images/ratings_interest.svg)
+![](./images/ratings_interest.png)
 
 ---
 
